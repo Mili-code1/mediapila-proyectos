@@ -16,10 +16,36 @@
     --color-magenta: #ff3fa4;
     --color-cyan: #2dd9ef;
     --color-violet: #9d6bff;
+    --color-danger: #f85149;
 
     --color-magenta-dim: #3a1428;
     --color-cyan-dim: #0d2a30;
     --color-violet-dim: #241a3d;
+    --color-danger-dim: #3a1414;
+}
+
+/* Modo claro: mismos nombres de variable, valores distintos.
+   Gris muy suave en vez de blanco puro, texto gris oscuro en vez de negro puro,
+   y los tres acentos oscurecidos para que el texto siga teniendo contraste sobre fondo claro. */
+[data-theme="light"] {
+    --color-bg: #eef0f3;
+    --color-surface: #f9fafb;
+    --color-surface-2: #eef1f5;
+    --color-border: #d7dbe3;
+    --color-border-hover: #c1c7d2;
+    --color-text: #1b2028;
+    --color-text-dim: #4b5563;
+    --color-text-faint: #6b7280;
+
+    --color-magenta: #c81272;
+    --color-cyan: #0e7c92;
+    --color-violet: #6d3fd1;
+    --color-danger: #c81e1e;
+
+    --color-magenta-dim: #fbe0ef;
+    --color-cyan-dim: #dff5f8;
+    --color-violet-dim: #ece3fb;
+    --color-danger-dim: #fbe4e4;
 }
 
 html {
@@ -37,11 +63,17 @@ body {
     background-position: center top;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* en claro no queremos la foto oscura de fondo debajo de un overlay claro (queda sucio) */
+[data-theme="light"] body {
+    background-image: none;
 }
 
 ::selection {
     background: var(--color-magenta);
-    color: #0a0d12;
+    color: #ffffff;
 }
 
 ::-webkit-scrollbar {

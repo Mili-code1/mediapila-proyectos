@@ -4,11 +4,11 @@ import { groups, evaluacionComun } from "../data/groups";
 import { ACCENTS } from "../data/accents";
 
 const METHOD_STYLE = {
-    GET: "text-[#2dd9ef] border-[#2dd9ef]/40 bg-[#0d2a30]",
-    POST: "text-[#ff3fa4] border-[#ff3fa4]/40 bg-[#3a1428]",
-    PUT: "text-[#9d6bff] border-[#9d6bff]/40 bg-[#241a3d]",
-    PATCH: "text-[#9d6bff] border-[#9d6bff]/40 bg-[#241a3d]",
-    DELETE: "text-[#f85149] border-[#f85149]/40 bg-[#3a1414]",
+    GET: "text-[var(--color-cyan)] border-[var(--color-cyan)] bg-[var(--color-cyan-dim)]",
+    POST: "text-[var(--color-magenta)] border-[var(--color-magenta)] bg-[var(--color-magenta-dim)]",
+    PUT: "text-[var(--color-violet)] border-[var(--color-violet)] bg-[var(--color-violet-dim)]",
+    PATCH: "text-[var(--color-violet)] border-[var(--color-violet)] bg-[var(--color-violet-dim)]",
+    DELETE: "text-[var(--color-danger)] border-[var(--color-danger)] bg-[var(--color-danger-dim)]",
 };
 
 const FILES = [

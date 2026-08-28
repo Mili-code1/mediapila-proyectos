@@ -15,10 +15,10 @@ export default function MosaicCard({ group }) {
         focus-visible:outline-none focus-visible:ring-2 ${accent.ring} focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--color-bg)]`}
             style={{ backgroundImage: BORDER_GRADIENT }}
         >
-            <div className="flex h-full flex-col gap-4 rounded-[15px] bg-[#0b0f16] p-5">
+            <div className="flex h-full flex-col gap-4 rounded-[15px] bg-[var(--color-surface)] p-5">
                 <div className="flex items-center gap-3">
                     <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--color-surface-2)]">
-                        <DiGithubAlt size={22} color={accentHex(group.accent)} />
+                        <DiGithubAlt size={22} color={accentVar(group.accent)} />
                     </span>
                     <h3 className="font-mono text-base font-extrabold uppercase tracking-tight text-[var(--color-text)]">
                         Grupo {group.numero}
@@ -48,6 +48,6 @@ export default function MosaicCard({ group }) {
     );
 }
 
-function accentHex(accent) {
-    return { magenta: "#ff3fa4", cyan: "#2dd9ef", violet: "#9d6bff" }[accent];
+function accentVar(accent) {
+    return `var(--color-${accent})`;
 }
