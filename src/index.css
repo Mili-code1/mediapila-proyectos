@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+    --font-mono: "JetBrains Mono", ui-monospace, monospace;
+    --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    --color-bg: #0a0d12;
+    --color-surface: #11151c;
+    --color-surface-2: #171c25;
+    --color-border: #262c37;
+    --color-border-hover: #383f4d;
+    --color-text: #e8ecf1;
+    --color-text-dim: #8891a0;
+    --color-text-faint: #565e6c;
+
+    --color-magenta: #ff3fa4;
+    --color-cyan: #2dd9ef;
+    --color-violet: #9d6bff;
+
+    --color-magenta-dim: #3a1428;
+    --color-cyan-dim: #0d2a30;
+    --color-violet-dim: #241a3d;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    background-image:
+        linear-gradient(rgba(10, 13, 18, 0.86), rgba(10, 13, 18, 0.92)),
+        url("/bg-drive.jpg");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+::selection {
+    background: var(--color-magenta);
+    color: #0a0d12;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 999px;
+    border: 2px solid var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-border-hover);
+}
+
+.font-mono {
+    font-family: var(--font-mono);
+}
+
+@keyframes pulse-dot {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.35;
+    }
+}
+
+.pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .pulse-dot {
+        animation: none;
+    }
+
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
