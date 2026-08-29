@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PathBar from "../components/PathBar";
 import { groups, evaluacionComun } from "../data/groups";
@@ -11,10 +12,11 @@ const METHOD_STYLE = {
     DELETE: "text-[var(--color-danger)] border-[var(--color-danger)] bg-[var(--color-danger-dim)]",
 };
 
-const FILES = [
+const BASE_FILES = [
     { id: "readme", label: "README.md" },
     { id: "modelo", label: "modelo-de-datos.md" },
     { id: "endpoints", label: "endpoints.md" },
+    { id: "ideas", label: "ideas.md" },
     { id: "entregables", label: "entregables.md" },
     { id: "evaluacion", label: "evaluacion.md" },
 ];
@@ -31,6 +33,38 @@ function Section({ id, title, children }) {
 export default function GroupDetail() {
     const { slug } = useParams();
     const group = groups.find((g) => g.slug === slug);
+    const hasIdeas = group?.ideas && group.ideas.length > 0;
+    const files = group
+        ? hasIdeas
+            ? BASE_FILES
+            : BASE_FILES.filter((f) => f.id !== "ideas")
+        : [];
+    const [activeId, setActiveId] = useState(files[0]?.id);
+
+    // fondo sólido en las páginas de detalle: la foto de fondo queda solo en el Home
+    useEffect(() => {
+        document.body.classList.add("solid-bg");
+        return () => document.body.classList.remove("solid-bg");
+    }, []);
+
+    // resalta en el sidebar la sección que se está leyendo
+    useEffect(() => {
+        const sectionEls = files
+            .map((f) => document.getElementById(f.id))
+            .filter(Boolean);
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) setActiveId(entry.target.id);
+                });
+            },
+            { rootMargin: "-96px 0px -70% 0px", threshold: 0 }
+        );
+
+        sectionEls.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    }, [group?.slug, files]);
 
     if (!group) return <Navigate to="/" replace />;
 
@@ -88,11 +122,14 @@ export default function GroupDetail() {
                         archivos
                     </p>
                     <ul className="space-y-0.5 border-l border-[var(--color-border)]">
-                        {FILES.map((f) => (
+                        {files.map((f) => (
                             <li key={f.id}>
                                 <a
                                     href={`#${f.id}`}
-                                    className="block border-l-2 border-transparent py-1.5 pl-3 font-mono text-[13px] text-[var(--color-text-dim)] transition-colors hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)]"
+                                    className={`block border-l-2 py-1.5 pl-3 font-mono text-[13px] transition-colors ${activeId === f.id
+                                            ? `${accent.border} ${accent.text} font-semibold`
+                                            : "border-transparent text-[var(--color-text-dim)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)]"
+                                        }`}
                                 >
                                     {f.label}
                                 </a>
@@ -161,6 +198,44 @@ export default function GroupDetail() {
                             ))}
                         </div>
                     </Section>
+
+                    {hasIdeas && (
+                        <Section id="ideas" title="Ideas de desarrollo">
+                            <p className="mb-4 text-sm text-[var(--color-text-dim)]">
+                                Elegí UNA de estas ideas para desarrollar el proyecto — la elección tiene que
+                                quedar reflejada en el código y en el README.
+                            </p>
+                            <div className="space-y-4">
+                                {group.ideas.map((idea, i) => (
+                                    <div
+                                        key={idea.id}
+                                        className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]"
+                                    >
+                                        <div
+                                            className={`flex items-center gap-2 border-b border-[var(--color-border)] px-4 py-2.5 ${i % 3 === 0
+                                                ? "border-l-2 border-l-[var(--color-magenta)]"
+                                                : i % 3 === 1
+                                                    ? "border-l-2 border-l-[var(--color-cyan)]"
+                                                    : "border-l-2 border-l-[var(--color-violet)]"
+                                                }`}
+                                        >
+                                            <span className="font-mono text-[11px] text-[var(--color-text-faint)]">
+                                                {idea.id}
+                                            </span>
+                                        </div>
+                                        <div className="px-4 py-3">
+                                            <h3 className="mb-1.5 font-mono text-sm font-bold text-[var(--color-text)]">
+                                                {idea.titulo}
+                                            </h3>
+                                            <p className="text-sm leading-relaxed text-[var(--color-text-dim)]">
+                                                {idea.descripcion}
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </Section>
+                    )}
 
                     <Section id="entregables" title="Entregables">
                         <ul className="space-y-2">

@@ -68,7 +68,14 @@ body {
 
 /* en claro no queremos la foto oscura de fondo debajo de un overlay claro (queda sucio) */
 [data-theme="light"] body {
-    background-image: none;
+    background-image: 
+        linear-gradient(rgba(238, 240, 243, 0.86), rgba(238, 240, 243, 0.92)), 
+        url("/bg-white.jpeg");
+}
+
+/* páginas de detalle: fondo sólido, sin la foto, para no interferir con la lectura */
+body.solid-bg {
+  background-image: none;
 }
 
 ::selection {
