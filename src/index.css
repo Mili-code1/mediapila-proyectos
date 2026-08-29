@@ -4,48 +4,48 @@
     --font-mono: "JetBrains Mono", ui-monospace, monospace;
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 
-    --color-bg: #0a0d12;
-    --color-surface: #11151c;
-    --color-surface-2: #171c25;
-    --color-border: #262c37;
-    --color-border-hover: #383f4d;
-    --color-text: #e8ecf1;
-    --color-text-dim: #8891a0;
-    --color-text-faint: #565e6c;
+    --color-bg: oklch(15.82% 0.0118 260.62);
+    --color-surface: oklch(19.49% 0.0155 261.57);
+    --color-surface-2: oklch(22.56% 0.0191 262.10);
+    --color-border: oklch(29.21% 0.0219 262.51);
+    --color-border-hover: oklch(36.69% 0.0260 264.18);
+    --color-text: oklch(94.15% 0.0080 253.85);
+    --color-text-dim: oklch(65.43% 0.0247 260.70);
+    --color-text-faint: oklch(48.01% 0.0247 261.69);
 
-    --color-magenta: #ff3fa4;
-    --color-cyan: #2dd9ef;
-    --color-violet: #9d6bff;
-    --color-danger: #f85149;
+    --color-magenta: oklch(68.20% 0.2401 353.58);
+    --color-cyan: oklch(81.31% 0.1326 208.47);
+    --color-violet: oklch(65.08% 0.2108 295.52);
+    --color-danger: oklch(66.51% 0.2046 26.96);
 
-    --color-magenta-dim: #3a1428;
-    --color-cyan-dim: #0d2a30;
-    --color-violet-dim: #241a3d;
-    --color-danger-dim: #3a1414;
+    --color-magenta-dim: oklch(25.81% 0.0660 349.96);
+    --color-cyan-dim: oklch(26.60% 0.0360 213.42);
+    --color-violet-dim: oklch(24.99% 0.0647 294.42);
+    --color-danger-dim: oklch(25.11% 0.0606 22.43);
 }
 
 /* Modo claro: mismos nombres de variable, valores distintos.
-   Gris muy suave en vez de blanco puro, texto gris oscuro en vez de negro puro,
+   Gris muy suave en vez de blanco puro (mis corneaaas), texto gris oscuro en vez de negro puro,
    y los tres acentos oscurecidos para que el texto siga teniendo contraste sobre fondo claro. */
 [data-theme="light"] {
-    --color-bg: #eef0f3;
-    --color-surface: #f9fafb;
-    --color-surface-2: #eef1f5;
-    --color-border: #d7dbe3;
-    --color-border-hover: #c1c7d2;
-    --color-text: #1b2028;
-    --color-text-dim: #4b5563;
-    --color-text-faint: #6b7280;
+    --color-bg: oklch(95.45% 0.0046 258.32);
+    --color-surface: oklch(98.46% 0.0017 247.84);
+    --color-surface-2: oklch(95.70% 0.0063 255.48);
+    --color-border: oklch(89.07% 0.0118 264.51);
+    --color-border-hover: oklch(82.83% 0.0167 262.74);
+    --color-text: oklch(24.21% 0.0170 259.76);
+    --color-text-dim: oklch(44.61% 0.0263 256.80);
+    --color-text-faint: oklch(55.10% 0.0234 264.36);
 
-    --color-magenta: #c81272;
-    --color-cyan: #0e7c92;
-    --color-violet: #6d3fd1;
-    --color-danger: #c81e1e;
+    --color-magenta: oklch(54.69% 0.2156 357.16);
+    --color-cyan: oklch(54.14% 0.0935 216.49);
+    --color-violet: oklch(50.83% 0.2105 291.53);
+    --color-danger: oklch(53.49% 0.2026 27.61);
 
-    --color-magenta-dim: #fbe0ef;
-    --color-cyan-dim: #dff5f8;
-    --color-violet-dim: #ece3fb;
-    --color-danger-dim: #fbe4e4;
+    --color-magenta-dim: oklch(93.30% 0.0354 343.25);
+    --color-cyan-dim: oklch(95.49% 0.0234 206.62);
+    --color-violet-dim: oklch(93.01% 0.0335 302.74);
+    --color-danger-dim: oklch(93.74% 0.0253 17.61);
 }
 
 html {
@@ -68,14 +68,14 @@ body {
 
 /* en claro no queremos la foto oscura de fondo debajo de un overlay claro (queda sucio) */
 [data-theme="light"] body {
-    background-image: 
-        linear-gradient(rgba(238, 240, 243, 0.86), rgba(238, 240, 243, 0.92)), 
+    background-image:
+        linear-gradient(rgba(238, 240, 243, 0.86), rgba(238, 240, 243, 0.92)),
         url("/bg-white.jpeg");
 }
 
 /* páginas de detalle: fondo sólido, sin la foto, para no interferir con la lectura */
 body.solid-bg {
-  background-image: none;
+    background-image: none;
 }
 
 ::selection {

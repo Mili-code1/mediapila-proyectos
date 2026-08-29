@@ -3,7 +3,7 @@ import { DiGithubAlt } from "react-icons/di";
 import { ACCENTS } from "../data/accents";
 
 const BORDER_GRADIENT =
-    "linear-gradient(135deg, #ff3fa4, #9d6bff 55%, #2dd9ef)";
+    "linear-gradient(135deg, var(--color-magenta), var(--color-violet) 55%, var(--color-cyan))";
 
 export default function MosaicCard({ group }) {
     const accent = ACCENTS[group.accent];

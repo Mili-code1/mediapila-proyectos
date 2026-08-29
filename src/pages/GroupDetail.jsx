@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import PathBar from "../components/PathBar";
 import { groups, evaluacionComun } from "../data/groups";
 import { ACCENTS } from "../data/accents";
+
 
 const METHOD_STYLE = {
     GET: "text-[var(--color-cyan)] border-[var(--color-cyan)] bg-[var(--color-cyan-dim)]",
@@ -34,17 +35,30 @@ export default function GroupDetail() {
     const { slug } = useParams();
     const group = groups.find((g) => g.slug === slug);
     const hasIdeas = group?.ideas && group.ideas.length > 0;
-    const files = group
-        ? hasIdeas
-            ? BASE_FILES
-            : BASE_FILES.filter((f) => f.id !== "ideas")
-        : [];
+    const files = useMemo(
+        () =>
+            group
+                ? hasIdeas
+                    ? BASE_FILES
+                    : BASE_FILES.filter((f) => f.id !== "ideas")
+                : [],
+        [group, hasIdeas]
+    );
     const [activeId, setActiveId] = useState(files[0]?.id);
+    const [showScrollTop, setShowScrollTop] = useState(false);
 
     // fondo sólido en las páginas de detalle: la foto de fondo queda solo en el Home
     useEffect(() => {
         document.body.classList.add("solid-bg");
         return () => document.body.classList.remove("solid-bg");
+    }, []);
+
+    // muestra el botón de volver arriba después de scrollear un poco
+    useEffect(() => {
+        const onScroll = () => setShowScrollTop(window.scrollY > 500);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+        return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
     // resalta en el sidebar la sección que se está leyendo
@@ -64,7 +78,7 @@ export default function GroupDetail() {
 
         sectionEls.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
-    }, [group?.slug, files]);
+    }, [files]);
 
     if (!group) return <Navigate to="/" replace />;
 
@@ -75,7 +89,6 @@ export default function GroupDetail() {
             <PathBar
                 crumbs={[
                     { label: "mediapila", to: "/" },
-                    { label: "drive", to: "/" },
                     { label: "grupos" },
                     { label: group.slug },
                 ]}
@@ -86,9 +99,17 @@ export default function GroupDetail() {
                 <div className="mx-auto max-w-6xl px-6 py-12">
                     <Link
                         to="/"
-                        className="mb-6 inline-flex items-center gap-1.5 font-mono text-xs text-[var(--color-text-faint)] transition-colors hover:text-[var(--color-text)]"
+                        className={`group relative mb-6 inline-flex w-fit items-center gap-1.5 font-mono text-xs font-semibold ${accent.text}`}
                     >
-                        ← volver al drive
+                        <span className="inline-block transition-transform duration-200 ease-out group-hover:-translate-x-1">
+                            ←
+                        </span>
+                        <span className="relative">
+                            volver atrás
+                            <span
+                                className={`absolute -bottom-0.5 left-0 h-px w-0 ${accent.bg} transition-all duration-200 ease-out group-hover:w-full`}
+                            />
+                        </span>
                     </Link>
                     <div className="flex flex-wrap items-center gap-3">
                         <h1 className="font-mono text-3xl font-extrabold tracking-tight text-[var(--color-text)] sm:text-4xl">
@@ -127,8 +148,8 @@ export default function GroupDetail() {
                                 <a
                                     href={`#${f.id}`}
                                     className={`block border-l-2 py-1.5 pl-3 font-mono text-[13px] transition-colors ${activeId === f.id
-                                            ? `${accent.border} ${accent.text} font-semibold`
-                                            : "border-transparent text-[var(--color-text-dim)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)]"
+                                        ? `${accent.border} ${accent.text} font-semibold`
+                                        : "border-transparent text-[var(--color-text-dim)] hover:border-[var(--color-border-hover)] hover:text-[var(--color-text)]"
                                         }`}
                                 >
                                     {f.label}
@@ -263,6 +284,20 @@ export default function GroupDetail() {
                     </Section>
                 </div>
             </div>
+
+            <button
+                type="button"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                aria-label="Volver arriba"
+                className={`fixed bottom-6 right-6 z-50 hidden h-12 w-12 items-center justify-center rounded-full border ${accent.border}
+                bg-[var(--color-surface)] ${accent.text} shadow-lg transition-all duration-200 ease-out
+                hover:-translate-y-0.5 hover:${accent.glow} sm:flex
+                ${showScrollTop ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-3 opacity-0"}`}
+            >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M12 19V5M12 5L6 11M12 5L18 11" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+            </button>
         </div>
     );
 }
