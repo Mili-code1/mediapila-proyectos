@@ -9,14 +9,18 @@ const ticketapp = {
     description:
         "Aplicación web de venta de entradas con un mapa visual de espacios (butacas, sectores o lugares) que muestra el estado de cada lugar en tiempo real: libre, bloqueado o vendido. Tiene sistema de roles (admin y usuario) con vistas y permisos distintos, carrito de compra con subtotal por sección y total acumulado, y confirmación de compra con número de orden generado automáticamente. El grupo elige UNA de las ideas de más abajo y desarrolla el proyecto sobre esa temática.",
     funcionalidades: [
-        "Login con roles diferenciados: admin y usuario, cada uno con una vista distinta",
-        "El admin gestiona el contenido (eventos, funciones, partidos, viajes, según la idea elegida); el usuario no puede acceder al panel de administración",
-        "Redirección automática si se intenta entrar a una sección no autorizada por URL",
-        "Mapa visual del espacio elegido, generado dinámicamente, con estados: libre / bloqueado / vendido",
-        "Selección múltiple de lugares con bloqueo inmediato apenas se eligen",
-        "Carrito con lista de lugares elegidos, subtotal por sección y total acumulado",
-        "Confirmación de compra con número de orden generado por el backend",
-        "Sección 'Mis entradas' con las compras agrupadas por evento/función",
+        "Login con roles diferenciados: admin y usuario, cada uno con una vista completamente distinta",
+        "Admin: gestiona el contenido según la idea elegida (eventos, partidos, funciones, viajes, etc.)",
+        "Admin: no puede comprar entradas",
+        "Usuario: no puede acceder al panel de administración",
+        "La restricción de acceso por rol se valida también en el backend, no alcanza con ocultar botones en el frontend",
+        "Redirección automática si se intenta acceder por URL a una sección no autorizada",
+        "Usuario: ve el listado de ítems disponibles con filtros",
+        "Usuario: navega el mapa visual del espacio elegido, con estados libre / bloqueado / vendido",
+        "Usuario: selecciona varios lugares a la vez; quedan bloqueados de inmediato en el backend (ya no vía localStorage entre pestañas)",
+        "Usuario: carrito con lista de lugares elegidos, subtotal por sección y total acumulado",
+        "Usuario: confirma la compra y recibe un número de orden generado por el backend",
+        "Usuario: sección 'Mis entradas' con las compras agrupadas por evento/función",
     ],
     modelos: [
         {
@@ -59,7 +63,7 @@ const ticketapp = {
         "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Node.js + Express", "MongoDB + Mongoose"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap"],
     ideas: [
         {
             id: "idea_01",
@@ -87,9 +91,9 @@ const ticketapp = {
         },
         {
             id: "idea_05",
-            titulo: "Cine Drive-In",
+            titulo: "Feria de Stands",
             descripcion:
-                "El mapa muestra filas de espacios para autos, diferenciando lugares para vehículos chicos y grandes. El admin crea funciones con película, horario y precio por tipo de espacio; el sistema bloquea el lugar al instante y emite confirmación con número de reserva.",
+                "El mapa es la planta de una feria (de emprendedores, gastronómica, de diseño) dividida en stands por rubro o categoría, cada uno con su tamaño y precio. Acá quien 'compra' es quien quiere exponer, no quien asiste: el usuario reserva uno o varios stands para su feria, los bloquea y confirma con un número de orden. El admin carga ferias con fecha, rubros habilitados y el mapa de stands disponibles.",
         },
     ],
 };

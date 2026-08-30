@@ -9,6 +9,7 @@ const devmatch = {
     description:
         "Red social con matching bidireccional: un perfil envía una solicitud a otro, y el match queda confirmado recién cuando la otra parte la acepta. El feed muestra perfiles ordenados por un puntaje de compatibilidad calculado según los atributos propios de la idea elegida (géneros musicales, stack técnico, materias en común, etc.). El onboarding es obligatorio antes de poder ver el feed. El grupo elige UNA de las ideas de más abajo y desarrolla el proyecto sobre esa temática.",
     funcionalidades: [
+        "Login validado contra el backend (no perfiles precargados en localStorage)",
         "Registro con nombre, usuario único, email y foto (URL)",
         "Onboarding obligatorio que bloquea el acceso al feed hasta completarse",
         "Redirección automática si se intenta acceder al feed sin completar el onboarding",
@@ -56,7 +57,7 @@ const devmatch = {
         "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Node.js + Express", "MongoDB + Mongoose"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap"],
     ideas: [
         {
             id: "idea_01",

@@ -9,12 +9,14 @@ const dataapp = {
     description:
         "Aplicación que consume una API externa (clima, sismos, tipo de cambio, astronomía o noticias, según la idea elegida) a través de un backend propio que oculta la API key y guarda favoritos e historial de búsquedas. La búsqueda dispara una sola llamada a la API externa; cambiar de unidad o modo de visualización se resuelve con los datos ya obtenidos, sin repetir la llamada. El grupo elige UNA de las ideas de más abajo y desarrolla el proyecto sobre esa temática.",
     funcionalidades: [
+        "Login de un único usuario (sin roles ni registro múltiple): hay que iniciar sesión para entrar, aunque la app no sea multiusuario",
         "Búsqueda de un término (ciudad, moneda, fecha, región, etc.) que el frontend envía al backend",
         "El backend llama a la API externa y guarda la API key en variable de entorno; nunca se expone en el código del frontend",
         "Manejo de errores visible en la UI (nunca solo en consola): término no encontrado, permiso denegado, límite de la API agotado",
         "Todas las llamadas (frontend→backend y backend→API externa) con async/await y try/catch",
         "Toggle entre unidades o modos de visualización sin repetir la llamada a la API: la conversión se calcula en el frontend con los datos ya obtenidos",
         "Fondo o estilo visual que cambia dinámicamente según el dato principal devuelto por la búsqueda",
+        "Indicadores visuales según el valor devuelto (niveles, rangos, estados) — por ejemplo un semáforo de riesgo, una alerta, o una escala de colores",
         "Guardar búsquedas como favoritas, accesibles desde cualquier parte de la app",
         "Historial de las últimas búsquedas sin duplicados: repetir una búsqueda existente la mueve al frente",
         "Si la idea elegida lo permite: geolocalización, pidiendo permiso y cargando datos de la ubicación actual",
@@ -48,7 +50,7 @@ const dataapp = {
         "Variables de entorno para el backend (.env no subido al repo, con la API key externa, connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Node.js + Express", "MongoDB + Mongoose", "API externa (según la idea elegida)"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap", "API externa (según la idea elegida)"],
     ideas: [
         {
             id: "idea_01",

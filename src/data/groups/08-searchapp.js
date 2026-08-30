@@ -9,12 +9,14 @@ const searchapp = {
     description:
         "Buscador sobre un dataset propio de 40+ registros, con filtros combinables (categoría, etiqueta, rango de fechas), ordenamiento por relevancia o fecha, paginado y favoritos con nota personal. El dataset ya no vive en un archivo JS como módulo ES6: ahora se carga en MongoDB mediante un script de seed y se consulta a través del backend. El grupo elige UNA de las ideas de más abajo y desarrolla el proyecto sobre esa temática.",
     funcionalidades: [
+        "Login de un único usuario (sin roles ni registro múltiple): hay que iniciar sesión para entrar, aunque la app no sea multiusuario",
         "Dataset de 40+ registros (título, descripción, contenido, categoría, etiquetas, fecha, link) cargado en MongoDB con un script de seed, con al menos 5 categorías distintas",
         "Búsqueda por texto simultánea en título, descripción y etiquetas, disparada al presionar Enter o el botón buscar (no en tiempo real)",
         "Filtros combinables: por categoría, por etiqueta (chips generados dinámicamente desde el dataset) y por rango de fechas",
         "Ordenamiento: por relevancia (título > descripción > etiquetas), por fecha o por título A-Z/Z-A",
         "Botón para limpiar todos los filtros",
-        "Resultados en cards (título, categoría, etiquetas, fecha, descripción corta), paginados de a 8 con numeración, recalculando siempre desde la página 1 al cambiar filtros",
+        "Resultados en cards (título, categoría, etiquetas, fecha, descripción corta), paginados de a 8 con numeración, con scroll al tope de la página al cambiar de página",
+        "El paginado se recalcula siempre desde la página 1 al cambiar cualquier filtro",
         "Modal de vista previa con el contenido completo y el link",
         "Favoritos con una nota personal corta por registro",
         "Historial de las últimas 10 búsquedas como chips clicables, sin duplicados (repetir una búsqueda la mueve al frente)",
@@ -65,7 +67,7 @@ const searchapp = {
         "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación, cómo correr el seed y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Node.js + Express", "MongoDB + Mongoose"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap"],
     ideas: [
         {
             id: "idea_01",

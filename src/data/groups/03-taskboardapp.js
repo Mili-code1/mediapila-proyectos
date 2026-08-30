@@ -9,11 +9,13 @@ const taskboard = {
     description:
         "Gestor de tableros y tareas tipo Trello, sin roles: un solo usuario gestiona todo. Cada tablero tiene sus propias columnas y tareas, con detalle enriquecido (descripción, prioridad, etiqueta y fecha límite) y hay un buscador global que encuentra tareas en cualquier tablero. El grupo elige UNA de las ideas de más abajo y desarrolla el proyecto sobre esa temática.",
     funcionalidades: [
+        "Login de un único usuario (sin roles ni registro múltiple): hay que iniciar sesión para entrar, aunque la app no sea multiusuario",
         "Vista general con todos los tableros: nombre, color/imagen de fondo y cantidad de tareas",
         "Crear tableros desde cero; renombrar y eliminar con confirmación",
         "Columnas con nombre editable: agregar, renombrar y eliminar (con confirmación si tiene tareas, sin dejar tareas huérfanas)",
+        "Crear tareas nuevas dentro de una columna",
         "Tarjeta de tarea con título, etiqueta de color, fecha límite con indicador visual e ícono si tiene descripción",
-        "Modal de detalle de tarea: título, descripción, fecha límite, prioridad (baja/media/alta) y etiqueta",
+        "Modal de detalle de tarea: título, descripción, fecha límite, prioridad (baja/media/alta), etiqueta y estado (según la columna en la que está)",
         "Mover tareas entre columnas con botones de flecha (no hace falta drag and drop)",
         "Buscador global por título o descripción que recorre todos los tableros y muestra a qué tablero y columna pertenece cada resultado",
         "Indicador de fecha (vencida / vence hoy o mañana) calculado en el frontend comparando con la fecha actual",
@@ -67,7 +69,7 @@ const taskboard = {
         "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Node.js + Express", "MongoDB + Mongoose"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap"],
     ideas: [
         {
             id: "idea_01",

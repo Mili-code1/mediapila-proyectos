@@ -9,10 +9,11 @@ const agendaapp = {
     description:
         "Gestor de tareas recurrentes con vista de calendario y vista de lista. Cada tarea puede tener subtareas, varias etiquetas personalizadas y una recurrencia (diaria, semanal o mensual); al completarse una tarea recurrente se genera automáticamente la siguiente ocurrencia. Un panel de productividad calcula racha de días activos, porcentaje de completitud y qué etiqueta tiene más pendientes. Sin roles: un solo usuario. El grupo elige UNA de las ideas de más abajo y desarrolla el proyecto sobre esa temática.",
     funcionalidades: [
+        "Login de un único usuario (sin roles ni registro múltiple): hay que iniciar sesión para entrar, aunque la app no sea multiusuario",
         "Crear tareas con título, descripción, fecha/hora de vencimiento, prioridad (baja/media/alta/urgente) y una o varias etiquetas personalizadas (nombre + color)",
         "Definir recurrencia por tarea: sin recurrencia / diaria / semanal / mensual",
         "Agregar subtareas con checkbox, mostrando barra de progreso (ej: 2/4 completadas)",
-        "Vista Calendario mensual con chips por día indicando tareas existentes",
+        "Vista Calendario mensual con chips por día indicando tareas existentes; clic en un chip abre el detalle de esa tarea",
         "Vista Lista con filtros combinados por estado, etiqueta y prioridad, aplicados sobre el mismo array",
         "Al completar una tarea recurrente, el backend genera automáticamente la siguiente ocurrencia",
         "Panel de productividad: completadas hoy / esta semana / este mes, porcentaje de completitud general, racha de días con al menos una tarea completada, etiqueta con más pendientes y un gráfico de barras de los últimos 7 días",
@@ -56,7 +57,7 @@ const agendaapp = {
         "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Node.js + Express", "MongoDB + Mongoose"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap"],
     ideas: [
         {
             id: "idea_01",

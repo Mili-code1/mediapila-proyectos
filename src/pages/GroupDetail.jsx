@@ -127,7 +127,7 @@ export default function GroupDetail() {
                         {group.stack.map((s) => (
                             <span
                                 key={s}
-                                className="rounded-md border border-[var(--color-border)] bg-[var(--color-surface)] px-2.5 py-1 font-mono text-[11px] text-[var(--color-text-dim)]"
+                                className={`rounded-md border ${accent.borderSubtle} bg-[var(--color-surface)] px-2.5 py-1 font-mono text-[11px] text-[var(--color-text-dim)]`}
                             >
                                 {s}
                             </span>
