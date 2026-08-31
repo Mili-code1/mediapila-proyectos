@@ -27,9 +27,18 @@ const serviapp = {
     ],
     modelos: [
         {
-            nombre: "Profesional",
+            nombre: "Usuario",
             campos: [
                 "nombre: String, requerido",
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada)",
+                "rol: String, enum ['oferente','cliente'], requerido",
+            ],
+        },
+        {
+            nombre: "Profesional",
+            campos: [
+                "usuario: ObjectId → ref 'Usuario', requerido (cuenta del oferente)",
                 "zona: String, requerido",
                 "contacto: String, requerido (para WhatsApp)",
                 "disponibilidadSemanal: [String] (días/franjas)",
@@ -51,7 +60,7 @@ const serviapp = {
             campos: [
                 "servicio: ObjectId → ref 'Servicio', requerido",
                 "profesional: ObjectId → ref 'Profesional', requerido",
-                "clienteNombre: String, requerido",
+                "cliente: ObjectId → ref 'Usuario', requerido",
                 "descripcion: String, requerido",
                 "diaFranja: String",
                 "fecha: Date, default Date.now",
@@ -63,7 +72,7 @@ const serviapp = {
             campos: [
                 "solicitud: ObjectId → ref 'Solicitud', requerido (debe estar en estado 'completada')",
                 "profesional: ObjectId → ref 'Profesional', requerido",
-                "clienteNombre: String, requerido",
+                "cliente: ObjectId → ref 'Usuario', requerido",
                 "puntaje: Number, requerido, min 1, max 5",
                 "comentario: String",
                 "fecha: Date, default Date.now",
@@ -71,56 +80,18 @@ const serviapp = {
         },
     ],
     endpoints: [
-        {
-            metodo: "GET",
-            ruta: "/api/profesionales",
-            desc: "Lista con filtros ?zona= &disponibilidad=",
-        },
-        {
-            metodo: "GET",
-            ruta: "/api/profesionales/:id",
-            desc: "Ficha de un profesional con sus servicios y reseñas",
-        },
-        {
-            metodo: "POST",
-            ruta: "/api/profesionales",
-            desc: "Alta de profesional (registro como oferente)",
-        },
-        {
-            metodo: "GET",
-            ruta: "/api/servicios",
-            desc: "Búsqueda con filtros ?categoria= &precioMax= &estrellasMin=",
-        },
-        {
-            metodo: "POST",
-            ruta: "/api/servicios",
-            desc: "El oferente carga un servicio nuevo",
-        },
-        {
-            metodo: "POST",
-            ruta: "/api/solicitudes",
-            desc: "El cliente solicita un servicio",
-        },
-        {
-            metodo: "GET",
-            ruta: "/api/solicitudes/profesional/:id",
-            desc: "Solicitudes recibidas por un profesional",
-        },
-        {
-            metodo: "PUT",
-            ruta: "/api/solicitudes/:id/estado",
-            desc: "Cambia el estado de una solicitud",
-        },
-        {
-            metodo: "POST",
-            ruta: "/api/resenas",
-            desc: "Crea una reseña (valida solicitud completada y unicidad del par)",
-        },
-        {
-            metodo: "GET",
-            ruta: "/api/resenas/profesional/:id",
-            desc: "Reseñas de un profesional",
-        },
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida credenciales y devuelve el usuario con su rol" },
+        { metodo: "POST", ruta: "/api/auth/registro", desc: "Crea un usuario nuevo con rol oferente o cliente" },
+        { metodo: "GET", ruta: "/api/profesionales", desc: "Lista con filtros ?zona= &disponibilidad=" },
+        { metodo: "GET", ruta: "/api/profesionales/:id", desc: "Ficha de un profesional con sus servicios y reseñas" },
+        { metodo: "GET", ruta: "/api/servicios", desc: "Búsqueda con filtros ?categoria= &precioMax= &estrellasMin=" },
+        { metodo: "POST", ruta: "/api/servicios", desc: "El oferente carga un servicio nuevo" },
+        { metodo: "POST", ruta: "/api/solicitudes", desc: "El cliente solicita un servicio" },
+        { metodo: "GET", ruta: "/api/solicitudes/profesional/:id", desc: "Solicitudes recibidas por un profesional" },
+        { metodo: "PUT", ruta: "/api/solicitudes/:id/estado", desc: "Cambia el estado de una solicitud" },
+        { metodo: "POST", ruta: "/api/resenas", desc: "Crea una reseña (valida solicitud completada y unicidad del par)" },
+        { metodo: "GET", ruta: "/api/resenas/profesional/:id", desc: "Reseñas de un profesional" },
+        { metodo: "GET", ruta: "/api/estadisticas/profesional/:id", desc: "Cantidad de servicios, solicitudes por estado y promedio del oferente" },
     ],
     entregables: [
         "Repositorio de GitHub público con el proyecto completo",

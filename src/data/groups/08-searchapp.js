@@ -23,6 +23,13 @@ const searchapp = {
     ],
     modelos: [
         {
+            nombre: "Usuario",
+            campos: [
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada)",
+            ],
+        },
+        {
             nombre: "Registro",
             campos: [
                 "titulo: String, requerido",
@@ -51,6 +58,7 @@ const searchapp = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida las credenciales del único usuario" },
         { metodo: "GET", ruta: "/api/registros", desc: "?q= &categoria= &etiqueta= &desde= &hasta= &orden= &pagina=, 8 por página" },
         { metodo: "GET", ruta: "/api/registros/:id", desc: "Detalle completo para el modal" },
         { metodo: "GET", ruta: "/api/categorias", desc: "Categorías distintas del dataset" },

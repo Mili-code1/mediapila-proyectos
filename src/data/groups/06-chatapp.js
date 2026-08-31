@@ -28,6 +28,8 @@ const chatapp = {
                 "fotoUrl: String",
                 "descripcion: String",
                 "estado: String, enum ['disponible','ocupado','no molestar'], default 'disponible'",
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada, cargada por seed)",
             ],
         },
         {
@@ -54,6 +56,7 @@ const chatapp = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida las credenciales del único usuario" },
         { metodo: "GET", ruta: "/api/perfil", desc: "Datos del usuario único" },
         { metodo: "PUT", ruta: "/api/perfil", desc: "Edita el perfil propio" },
         { metodo: "GET", ruta: "/api/contactos", desc: "Lista de contactos con último mensaje y no leídos" },

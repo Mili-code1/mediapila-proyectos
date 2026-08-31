@@ -20,6 +20,13 @@ const agendaapp = {
     ],
     modelos: [
         {
+            nombre: "Usuario",
+            campos: [
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada)",
+            ],
+        },
+        {
             nombre: "Etiqueta",
             campos: [
                 "nombre: String, requerido",
@@ -42,6 +49,7 @@ const agendaapp = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida las credenciales del único usuario" },
         { metodo: "GET", ruta: "/api/tareas", desc: "Lista con filtros ?estado= &etiqueta= &prioridad= &desde= &hasta=" },
         { metodo: "POST", ruta: "/api/tareas", desc: "Crea una tarea" },
         { metodo: "PUT", ruta: "/api/tareas/:id", desc: "Edita una tarea" },

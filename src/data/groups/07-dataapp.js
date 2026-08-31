@@ -23,6 +23,13 @@ const dataapp = {
     ],
     modelos: [
         {
+            nombre: "Usuario",
+            campos: [
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada)",
+            ],
+        },
+        {
             nombre: "Busqueda",
             campos: [
                 "termino: String, requerido",
@@ -39,6 +46,7 @@ const dataapp = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida las credenciales del único usuario" },
         { metodo: "GET", ruta: "/api/datos/:termino", desc: "Llama a la API externa, devuelve los datos y registra la búsqueda" },
         { metodo: "GET", ruta: "/api/historial", desc: "Últimas búsquedas sin duplicados, más reciente primero" },
         { metodo: "GET", ruta: "/api/favoritos", desc: "Lista de favoritos" },

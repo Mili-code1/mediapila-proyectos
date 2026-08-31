@@ -24,6 +24,15 @@ const ticketapp = {
     ],
     modelos: [
         {
+            nombre: "Usuario",
+            campos: [
+                "nombre: String, requerido",
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada)",
+                "rol: String, enum ['admin','usuario'], requerido",
+            ],
+        },
+        {
             nombre: "Evento",
             campos: [
                 "titulo: String, requerido",
@@ -49,6 +58,7 @@ const ticketapp = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida credenciales y devuelve el usuario con su rol" },
         { metodo: "GET", ruta: "/api/eventos", desc: "Lista todos los eventos" },
         { metodo: "GET", ruta: "/api/eventos/:id", desc: "Detalle de un evento" },
         { metodo: "POST", ruta: "/api/eventos", desc: "Crea un evento (organizador)" },

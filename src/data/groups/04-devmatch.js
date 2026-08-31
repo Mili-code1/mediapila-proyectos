@@ -27,6 +27,7 @@ const devmatch = {
                 "nombre: String, requerido",
                 "usuario: String, requerido, unique",
                 "email: String, requerido",
+                "password: String, requerido (hasheada)",
                 "fotoUrl: String",
                 "onboardingCompleto: Boolean, default false",
                 "atributos: Object (específicos de la idea elegida: instrumento, géneros, stack, materias, etc.)",
@@ -43,6 +44,7 @@ const devmatch = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida credenciales y devuelve el perfil" },
         { metodo: "GET", ruta: "/api/perfiles", desc: "Feed ?perfilId= ordenado por compatibilidad con ese perfil" },
         { metodo: "GET", ruta: "/api/perfiles/:id", desc: "Ficha de un perfil" },
         { metodo: "POST", ruta: "/api/perfiles", desc: "Registro de un perfil nuevo" },

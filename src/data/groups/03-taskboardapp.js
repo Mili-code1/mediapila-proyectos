@@ -22,6 +22,13 @@ const taskboard = {
     ],
     modelos: [
         {
+            nombre: "Usuario",
+            campos: [
+                "email: String, requerido, unique",
+                "password: String, requerido (hasheada)",
+            ],
+        },
+        {
             nombre: "Tablero",
             campos: [
                 "nombre: String, requerido",
@@ -50,6 +57,7 @@ const taskboard = {
         },
     ],
     endpoints: [
+        { metodo: "POST", ruta: "/api/auth/login", desc: "Valida las credenciales del único usuario" },
         { metodo: "GET", ruta: "/api/tableros", desc: "Lista tableros con cantidad de tareas" },
         { metodo: "POST", ruta: "/api/tableros", desc: "Crea un tablero" },
         { metodo: "PUT", ruta: "/api/tableros/:id", desc: "Renombra/cambia el color de un tablero" },
