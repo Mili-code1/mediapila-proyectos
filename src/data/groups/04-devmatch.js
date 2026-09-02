@@ -3,7 +3,7 @@ const devmatch = {
     numero: 4,
     slug: "devmatch",
     name: "DevMatch",
-    accent: "cyan",
+    accent: "accent2",
     tagline: "Red social de matching con compatibilidad por perfil",
     branch: "feature/devmatch-backend",
     description:

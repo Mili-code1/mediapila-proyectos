@@ -6,11 +6,11 @@ import { ACCENTS } from "../data/accents";
 
 
 const METHOD_STYLE = {
-    GET: "text-[var(--color-cyan)] border-[var(--color-cyan)] bg-[var(--color-cyan-dim)]",
-    POST: "text-[var(--color-magenta)] border-[var(--color-magenta)] bg-[var(--color-magenta-dim)]",
-    PUT: "text-[var(--color-violet)] border-[var(--color-violet)] bg-[var(--color-violet-dim)]",
-    PATCH: "text-[var(--color-violet)] border-[var(--color-violet)] bg-[var(--color-violet-dim)]",
-    DELETE: "text-[var(--color-danger)] border-[var(--color-danger)] bg-[var(--color-danger-dim)]",
+    GET: "text-[var(--color-http-get)] border-[var(--color-http-get)] bg-[var(--color-http-get-dim)]",
+    POST: "text-[var(--color-http-post)] border-[var(--color-http-post)] bg-[var(--color-http-post-dim)]",
+    PUT: "text-[var(--color-http-put)] border-[var(--color-http-put)] bg-[var(--color-http-put-dim)]",
+    PATCH: "text-[var(--color-http-patch)] border-[var(--color-http-patch)] bg-[var(--color-http-patch-dim)]",
+    DELETE: "text-[var(--color-http-delete)] border-[var(--color-http-delete)] bg-[var(--color-http-delete-dim)]",
 };
 
 const BASE_FILES = [
@@ -234,10 +234,10 @@ export default function GroupDetail() {
                                     >
                                         <div
                                             className={`flex items-center gap-2 border-b border-[var(--color-border)] px-4 py-2.5 ${i % 3 === 0
-                                                ? "border-l-2 border-l-[var(--color-magenta)]"
+                                                ? "border-l-2 border-l-[var(--color-accent-1)]"
                                                 : i % 3 === 1
-                                                    ? "border-l-2 border-l-[var(--color-cyan)]"
-                                                    : "border-l-2 border-l-[var(--color-violet)]"
+                                                    ? "border-l-2 border-l-[var(--color-accent-2)]"
+                                                    : "border-l-2 border-l-[var(--color-accent-3)]"
                                                 }`}
                                         >
                                             <span className="font-mono text-[11px] text-[var(--color-text-faint)]">

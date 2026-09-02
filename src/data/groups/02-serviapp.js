@@ -3,7 +3,7 @@ const serviapp = {
     numero: 2,
     slug: "serviapp",
     name: "ServiApp",
-    accent: "cyan",
+    accent: "accent2",
     tagline: "Conectá clientes con profesionales de oficios",
     branch: "feature/serviapp-backend",
     description:

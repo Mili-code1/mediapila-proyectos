@@ -3,7 +3,7 @@ const agendaapp = {
     numero: 5,
     slug: "agendaapp",
     name: "AgendaApp",
-    accent: "violet",
+    accent: "accent3",
     tagline: "Tareas recurrentes con calendario y panel de productividad",
     branch: "feature/agendaapp-backend",
     description:

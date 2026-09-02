@@ -3,7 +3,7 @@ const taskboard = {
     numero: 3,
     slug: "taskboard",
     name: "TaskBoard",
-    accent: "violet",
+    accent: "accent3",
     tagline: "Tablero Kanban con columnas y tareas persistentes",
     branch: "feature/taskboard-backend",
     description:

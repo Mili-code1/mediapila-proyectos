@@ -3,7 +3,7 @@ const ticketapp = {
     numero: 1,
     slug: "ticketapp",
     name: "TicketApp",
-    accent: "magenta",
+    accent: "accent1",
     tagline: "Venta y gestión de entradas para eventos",
     branch: "feature/ticketapp-backend",
     description:

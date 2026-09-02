@@ -3,7 +3,7 @@ const searchapp = {
     numero: 8,
     slug: "searchapp",
     name: "SearchApp",
-    accent: "violet",
+    accent: "accent3",
     tagline: "Buscador con dataset propio, filtros y favoritos",
     branch: "feature/searchapp-backend",
     description:

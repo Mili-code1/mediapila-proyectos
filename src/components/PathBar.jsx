@@ -5,11 +5,11 @@ export default function PathBar({ crumbs }) {
     return (
         <div className="border-b border-[var(--color-border)] bg-[var(--color-bg)]/80 backdrop-blur">
             <div className="mx-auto flex max-w-6xl items-center gap-2 px-6 py-4">
-                <div className="mr-2 flex gap-1.5">
-                    <span className="h-2.5 w-2.5 rounded-sm bg-[var(--color-magenta)]" />
-                    <span className="h-2.5 w-2.5 rounded-sm bg-[var(--color-cyan)]" />
-                    <span className="h-2.5 w-2.5 rounded-sm bg-[var(--color-violet)]" />
-                </div>
+                <img
+                    src="/logo-compacto.png"
+                    alt="Mediapila"
+                    className="mr-2 h-8 w-auto shrink-0"
+                />
                 <nav className="flex flex-1 items-center gap-1.5 font-mono text-[13px]">
                     {crumbs.map((c, i) => (
                         <span key={i} className="flex items-center gap-1.5">

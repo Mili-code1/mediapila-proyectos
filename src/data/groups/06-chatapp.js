@@ -3,7 +3,7 @@ const chatapp = {
     numero: 6,
     slug: "chatapp",
     name: "ChatApp",
-    accent: "magenta",
+    accent: "accent1",
     tagline: "Chat con contactos que responden por palabra clave",
     branch: "feature/chatapp-backend",
     description:

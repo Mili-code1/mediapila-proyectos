@@ -3,7 +3,7 @@ const dataapp = {
     numero: 7,
     slug: "dataapp",
     name: "DataApp",
-    accent: "cyan",
+    accent: "accent2",
     tagline: "Consumo de una API externa con favoritos e historial",
     branch: "feature/dataapp-backend",
     description:
