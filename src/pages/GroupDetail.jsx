@@ -25,7 +25,7 @@ const BASE_FILES = [
 function Section({ id, title, children }) {
     return (
         <section id={id} className="scroll-mt-24 border-b border-[var(--color-border)] py-10 first:pt-0 last:border-b-0">
-            <h2 className="mb-5 font-mono text-lg font-bold text-[var(--color-text)]">{title}</h2>
+            <h2 className="mb-5 font-mono text-xl font-bold text-[var(--color-text)]">{title}</h2>
             {children}
         </section>
     );
@@ -121,7 +121,7 @@ export default function GroupDetail() {
                             requiere backend
                         </span>
                     </div>
-                    <p className="mt-3 max-w-2xl text-base text-[var(--color-text-dim)]">{group.tagline}</p>
+                    <p className="mt-3 max-w-2xl text-lg text-[var(--color-text-dim)]">{group.tagline}</p>
 
                     <div className="mt-6 flex flex-wrap gap-2">
                         {group.stack.map((s) => (
@@ -161,7 +161,7 @@ export default function GroupDetail() {
 
                 <div className="min-w-0 flex-1">
                     <Section id="readme" title="Descripción">
-                        <p className="mb-6 max-w-3xl leading-relaxed text-[var(--color-text-dim)]">
+                        <p className="mb-6 max-w-3xl text-xl leading-relaxed text-[var(--color-text-dim)]">
                             {group.description}
                         </p>
                         <p className="mb-3 font-mono text-xs uppercase tracking-wide text-[var(--color-text-faint)]">
@@ -169,7 +169,7 @@ export default function GroupDetail() {
                         </p>
                         <ul className="space-y-2">
                             {group.funcionalidades.map((f, i) => (
-                                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--color-text-dim)]">
+                                <li key={i} className="flex gap-3 text-lg leading-relaxed text-[var(--color-text-dim)]">
                                     <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bg}`} />
                                     {f}
                                 </li>
@@ -184,12 +184,12 @@ export default function GroupDetail() {
                                     key={m.nombre}
                                     className="overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)]"
                                 >
-                                    <div className="border-b border-[var(--color-border)] px-4 py-2 font-mono text-sm font-semibold text-[var(--color-text)]">
+                                    <div className="border-b border-[var(--color-border)] px-4 py-2 font-mono text-lg font-semibold text-[var(--color-text)]">
                                         {m.nombre}
                                     </div>
                                     <div className="px-4 py-3">
                                         {m.campos.map((c, i) => (
-                                            <div key={i} className="py-1 font-mono text-[13px] text-[var(--color-text-dim)]">
+                                            <div key={i} className="py-1 font-mono text-base text-[var(--color-text-dim)]">
                                                 <span className="text-[var(--color-text-faint)]">·</span> {c}
                                             </div>
                                         ))}
@@ -213,8 +213,8 @@ export default function GroupDetail() {
                                     >
                                         {e.metodo}
                                     </span>
-                                    <code className="shrink-0 font-mono text-sm text-[var(--color-text)]">{e.ruta}</code>
-                                    <span className="text-sm text-[var(--color-text-dim)]">{e.desc}</span>
+                                    <code className="shrink-0 font-mono text-lg text-[var(--color-text)]">{e.ruta}</code>
+                                    <span className="text-lg text-[var(--color-text-dim)]">{e.desc}</span>
                                 </div>
                             ))}
                         </div>
@@ -222,7 +222,7 @@ export default function GroupDetail() {
 
                     {hasIdeas && (
                         <Section id="ideas" title="Ideas de desarrollo">
-                            <p className="mb-4 text-sm text-[var(--color-text-dim)]">
+                            <p className="mb-4 text-lg text-[var(--color-text-dim)]">
                                 Elegí UNA de estas ideas para desarrollar el proyecto — la elección tiene que
                                 quedar reflejada en el código y en el README.
                             </p>
@@ -245,10 +245,10 @@ export default function GroupDetail() {
                                             </span>
                                         </div>
                                         <div className="px-4 py-3">
-                                            <h3 className="mb-1.5 font-mono text-sm font-bold text-[var(--color-text)]">
+                                            <h3 className="mb-1.5 font-mono text-lg font-bold text-[var(--color-text)]">
                                                 {idea.titulo}
                                             </h3>
-                                            <p className="text-sm leading-relaxed text-[var(--color-text-dim)]">
+                                            <p className="text-lg leading-relaxed text-[var(--color-text-dim)]">
                                                 {idea.descripcion}
                                             </p>
                                         </div>
@@ -261,7 +261,7 @@ export default function GroupDetail() {
                     <Section id="entregables" title="Entregables">
                         <ul className="space-y-2">
                             {group.entregables.map((e, i) => (
-                                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--color-text-dim)]">
+                                <li key={i} className="flex gap-3 text-lg leading-relaxed text-[var(--color-text-dim)]">
                                     <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${accent.bg}`} />
                                     {e}
                                 </li>
@@ -270,12 +270,12 @@ export default function GroupDetail() {
                     </Section>
 
                     <Section id="evaluacion" title="Criterios de evaluación">
-                        <p className="mb-4 text-sm text-[var(--color-text-dim)]">
+                        <p className="mb-4 text-lg text-[var(--color-text-dim)]">
                             Aplican a todos los grupos por igual, más allá del dominio del proyecto:
                         </p>
                         <ul className="space-y-2">
                             {evaluacionComun.map((c, i) => (
-                                <li key={i} className="flex gap-3 text-sm leading-relaxed text-[var(--color-text-dim)]">
+                                <li key={i} className="flex gap-3 text-lg leading-relaxed text-[var(--color-text-dim)]">
                                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[var(--color-text-faint)]" />
                                     {c}
                                 </li>
