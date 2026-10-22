@@ -98,7 +98,7 @@ const serviapp = {
         "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
         "README con instrucciones de instalación y cómo levantar el proyecto",
     ],
-    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap"],
+    stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap", "Node.js", "Express", "MongoDB", "Mongoose"],
     ideas: [
         {
             id: "idea_01",

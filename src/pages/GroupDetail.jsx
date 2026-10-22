@@ -101,11 +101,11 @@ export default function GroupDetail() {
                         to="/"
                         className={`group relative mb-6 inline-flex w-fit items-center gap-1.5 font-mono text-xs font-semibold ${accent.text}`}
                     >
-                        <span className="inline-block transition-transform duration-200 ease-out group-hover:-translate-x-1">
+                        <span className="inline-block text-lg transition-transform duration-200 ease-out group-hover:-translate-x-1">
                             ←
                         </span>
                         <span className="relative">
-                            volver atrás
+                            volver
                             <span
                                 className={`absolute -bottom-0.5 left-0 h-px w-0 ${accent.bg} transition-all duration-200 ease-out group-hover:w-full`}
                             />
@@ -127,7 +127,7 @@ export default function GroupDetail() {
                         {group.stack.map((s) => (
                             <span
                                 key={s}
-                                className={`rounded-md border ${accent.borderSubtle} bg-[var(--color-surface)] px-2.5 py-1 font-mono text-[11px] text-[var(--color-text-dim)]`}
+                                className={`rounded-md border ${accent.borderSubtle} bg-[var(--color-surface)] px-3 py-1.5 font-mono text-sm text-[var(--color-text-dim)]`}
                             >
                                 {s}
                             </span>
