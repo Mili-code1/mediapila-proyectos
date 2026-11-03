@@ -12,7 +12,7 @@ export default function Home() {
                 <div className="flex flex-col items-center gap-10 lg:flex-row lg:items-center lg:justify-between">
                     <div className="max-w-2xl">
                         <div className="mb-4 font-mono text-lg text-[var(--color-text-dim)]">
-                            $ ls grupos/ <span className="text-[var(--color-text-faint)]">— 8 resultados</span>
+                            $ ls grupos/ <span className="text-[var(--color-text-faint)]">— {groups.length} resultados</span>
                         </div>
                         <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-[var(--color-text)] sm:text-5xl">
                             Elegí tu grupo{" "}
@@ -35,9 +35,14 @@ export default function Home() {
                 </div>
 
                 {/* grid */}
-                <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 md:mt-2 lg:grid-cols-4">
+                <div className="mt-14 flex flex-wrap justify-center gap-4 md:mt-2">
                     {groups.map((g) => (
-                        <MosaicCard key={g.id} group={g} />
+                        <div
+                            key={g.id}
+                            className="w-full sm:w-[calc((100%_-_1rem)/2)] lg:w-[calc((100%_-_3rem)/4)]"
+                        >
+                            <MosaicCard group={g} />
+                        </div>
                     ))}
                 </div>
 

@@ -1,4 +1,4 @@
-const searchapp = {
+/* const searchapp = {
     id: "searchapp",
     numero: 8,
     slug: "searchapp",
@@ -110,4 +110,4 @@ const searchapp = {
     ],
 };
 
-export default searchapp;
+export default searchapp; */

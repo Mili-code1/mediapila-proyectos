@@ -9,7 +9,7 @@ import devmatch from "./04-devmatch";
 import agendaapp from "./05-agendaapp";
 import chatapp from "./06-chatapp";
 import dataapp from "./07-dataapp";
-import searchapp from "./08-searchapp";
+// import searchapp from "./08-searchapp";
 
 export const groups = [
     ticketapp,
@@ -19,7 +19,7 @@ export const groups = [
     agendaapp,
     chatapp,
     dataapp,
-    searchapp,
+    // searchapp,
 ];
 
 export { evaluacionComun } from "./evaluacionComun";
