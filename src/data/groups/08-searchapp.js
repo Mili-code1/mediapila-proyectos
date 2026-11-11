@@ -70,10 +70,10 @@
         { metodo: "POST", ruta: "/api/historial", desc: "Registra una búsqueda (la mueve al frente si ya existía)" },
     ],
     entregables: [
-        "Repositorio de GitHub público con el proyecto completo",
+        "Repositorio público de GitHub o carpeta comprimida .zip con el proyecto completo",
         "Script de seed para cargar los 40+ registros iniciales en MongoDB",
-        "Variables de entorno para el backend (.env no subido al repo, con el connection string de MongoDB, puerto, etc.)",
-        "README con instrucciones de instalación, cómo correr el seed y cómo levantar el proyecto",
+        "Variables de entorno para el backend mediante un archivo .env, que no debe incluirse en el repositorio ni en el ZIP; entregar un .env.example con nombres de variables y valores de ejemplo, y explicar cómo completarlo (connection string de MongoDB, puerto, etc.)",
+        "README o archivo de instalación con instrucciones detalladas para instalar, correr el seed y levantar el proyecto",
     ],
     stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap", "Node.js", "Express", "MongoDB", "Mongoose"],
     ideas: [

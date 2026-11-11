@@ -54,9 +54,9 @@ const dataapp = {
         { metodo: "DELETE", ruta: "/api/favoritos/:id", desc: "Quita un favorito" },
     ],
     entregables: [
-        "Repositorio de GitHub público con el proyecto completo",
-        "Variables de entorno para el backend (.env no subido al repo, con la API key externa, connection string de MongoDB, puerto, etc.)",
-        "README con instrucciones de instalación y cómo levantar el proyecto",
+        "Repositorio público de GitHub o carpeta comprimida .zip con el proyecto completo",
+        "Variables de entorno para el backend mediante un archivo .env, que no debe incluirse en el repositorio ni en el ZIP; entregar un .env.example con nombres de variables y valores de ejemplo, y explicar cómo completarlo (API key externa, connection string de MongoDB, puerto, etc.)",
+        "README o archivo de instalación con instrucciones detalladas para instalar y levantar el proyecto",
     ],
     stack: ["HTML5 + CSS3 + JavaScript", "Bootstrap", "Node.js", "Express", "MongoDB", "Mongoose", "API externa (según la idea elegida)"],
     ideas: [
